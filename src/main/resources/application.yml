@@ -1,0 +1,35 @@
+server:
+  port: 9066
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 500
+    max-connections: 500
+    connection-timeout: 30000
+    accepCount: 100
+
+spring:
+  application:
+    name: easycode-demo
+  datasource:
+    name: employee
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialization-mode: always
+    sql-script-encoding: utf-8
+    platform: mysql
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://10.10.10.3:3306/employee?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: qpmz
+
+
+mybatis:
+  mapper-locations: classpath:mapper/**.xml
+  configuration:
+    cache-enabled: true
+mapper:
+  mappers: com.ldgroup.easycodedemo.dao.MyBaseDao
+  identity: MYSQL
+
+dataacess:
+  data-access-type: 0
